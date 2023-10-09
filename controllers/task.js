@@ -22,8 +22,8 @@ exports.getTasks = async function (request, response) {
 
 //crear una tarea
 exports.createTask = async function (request, response) {
-  const { name, description,status} = request.body;
-  const task = await createTask({ name, description,status, UserId: 1 });
+  const { name, description} = request.body;
+  const task = await createTask({ UserId: 1 ,name, description });
   response.json(task);
 };
 

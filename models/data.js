@@ -1,5 +1,7 @@
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
+
+/*
 const sequelize = new Sequelize({
   dialect: process.env.DIALECT,
   host: process.env.HOST,
@@ -7,6 +9,12 @@ const sequelize = new Sequelize({
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 });
+*/
+const sequelize = new Sequelize({
+  dialect:"sqlite",
+  storage:"./sqlite.bd"
+})
+
 
 exports.sequelize = sequelize;
 
@@ -23,7 +31,7 @@ exports.connect = async function () {
 // funcion que permite sincronizar los cambios
 exports.sync = async function () {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     console.log("Base de datos actualizada");
   } catch (error) {
     console.error(error);

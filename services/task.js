@@ -27,7 +27,7 @@ exports.updateById = async function (id,data) {
     },
   });
 };
-exports.deleteById = async function (data) {
-  const task = await Task.findByPk(data);
+exports.deleteById = async function (id) {
+  const task = await Task.findByPk(id);
   await task.destroy();
 };
