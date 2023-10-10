@@ -2,11 +2,7 @@ const { sequelize } = require("./data");
 const { DataTypes } = require("sequelize");
 
 module.exports = sequelize.define("User", {
-  name: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-    unique: false,
-  },
+ 
   username: {
     type: DataTypes.STRING(25),
     allowNull: false,

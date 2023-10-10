@@ -16,10 +16,10 @@ module.exports = sequelize.define(
       },
     },
     status: {
-      fiel: "is_complete",
-      type: DataTypes.BOOLEAN,
+  
+      type: DataTypes.STRING(15),
       allowNull: false,
-      defaultValue: false,
+      defaultValue:"INCOMPLETE",
     },
   },
   { timestamps: true }

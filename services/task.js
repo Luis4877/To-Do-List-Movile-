@@ -4,30 +4,37 @@ exports.findAll = function () {
   return Task.findAll();
 };
 
-exports.findByid = function (id) {
+exports.findById = function (id) {
+  
   return Task.findByPk(id);
 };
 
-exports.createTask = function (data) {
+exports.insert = function (data) {
   return Task.create(data);
 };
 
-exports.completeById = async function (data) {
-  await Task.update(data, {
-    where: {
-      id,
-    },
+exports.complete = async function (id) {
+ const task = await Task.findByPk(id);
+ await task.update({status:"COMPLETE"},{
+  where:{
+    id
+  }
+ })
+
+};
+
+exports.update = async function (id,name,description) {
+
+  const datos = await Task.findByPk(id);
+  await datos.update({name,description},{
+    where:
+    id
   });
 };
 
-exports.updateById = async function (id,data) {
-  await Task.update(data, {
-    where: {
-      id,
-    },
-  });
-};
-exports.deleteById = async function (id) {
-  const task = await Task.findByPk(id);
-  await task.destroy();
+
+exports.destroy = async function (id) {
+ 
+  const task =   await Task.findByPk(id);
+   await  task.destroy();
 };

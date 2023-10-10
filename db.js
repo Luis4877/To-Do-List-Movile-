@@ -7,7 +7,7 @@ const Task = require("./models/task");
 
 exports.ConnectBD = async function () {
   //Un usuario crea muchas tareas pero una tarea solo puede ser creada por 1 usuario
-  User.hasMany(Task);
+  User.hasMany(Task);//un usuario tiene muchas tareas
   Task.belongsTo(User);
 
   await connect();
