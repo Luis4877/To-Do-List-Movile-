@@ -10,11 +10,18 @@ const {
 
 } = require("../controllers/task");
 
-router.get("/getTask/:id", getTask);
-router.get("/getTasks", getTasks);
-router.get("/updateById/:id", updateTask);
-router.get("/deleteById/:id", deleteTask);
-router.get("/createTask", createTask);
-router.get("/completeTask/:id", completeTask);
+router.get("/task/:id", getTask);//get
+router.get("/tasks", getTasks);//get
+router.get("/task/:id", updateTask);
+router.delete("/task/:id", deleteTask);
+router.put("/task", createTask);//
+router.put("/task/:id", completeTask);
 
 module.exports = router;
+/*
+get-Obtener informacion
+post-crear informacion 
+put-reemplazar informacion
+patch-actualizar parcialmente informacion
+delete:eliminar informacion 
+*/

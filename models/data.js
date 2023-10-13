@@ -35,5 +35,6 @@ exports.sync = async function () {
     console.log("Base de datos actualizada");
   } catch (error) {
     console.error(error);
+    process.exit(1); 
   }
 };

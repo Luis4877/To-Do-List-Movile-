@@ -17,7 +17,7 @@ module.exports = sequelize.define("User", {
     type: DataTypes.STRING(45),
     allowNull: false,
     validate: {
-      len: [10, 45],
+      len: [10, 70],
     },
   },
 });
