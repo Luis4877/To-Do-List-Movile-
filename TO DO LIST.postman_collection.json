@@ -92,13 +92,77 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:4000/updateById/1",
+							"raw": "localhost:4000/updateById/2",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
 								"updateById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/getTasks",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"getTasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/deleteById/2",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"deleteById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTask/id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "completeTask/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/completeTask/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"completeTask",
 								"1"
 							]
 						}

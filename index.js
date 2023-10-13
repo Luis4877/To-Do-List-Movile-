@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const {ConnectBD} = require('./db');
+const validationError=require("./middlewares/validations-error")
 ConnectBD();
 const app = express();
 // para que todos los middlewares puedan utilizar el request.body
@@ -13,6 +14,8 @@ const usersRouter = require("./routers/users");
 app.use(taskRouter);
 app.use(usersRouter);
 
+//manejo de errores
+app.use(validationError)
 
 app.listen(process.env.SERVER_PORT, function () {
   console.log(`Escuchando en el puerto ${process.env.SERVER_PORT}`);
