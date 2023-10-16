@@ -1,7 +1,11 @@
 const Task = require("../models/task");
 
-exports.findAll = function () {
-  return Task.findAll();
+exports.findAll = function (id){
+  return Task.findAll({
+    where:{
+      id,
+    }
+  });
 };
 
 exports.findById = function (id) {
