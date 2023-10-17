@@ -8,8 +8,10 @@ exports.login = async function (request, response) {
    
     response.status(200).json({ token });
   } catch (error) {
-    response.status(400).json({
-      error: "No se pudo iniciar sesion correctamente",
+    response.status(401).json({
+      error: error.message,
+      messageDev:"no se encontro usuario por correo o la contraseña es incorrecta",
+      code:"UIoCI",
     });
   }
 };
