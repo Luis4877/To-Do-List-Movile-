@@ -11,10 +11,9 @@ const sequelize = new Sequelize({
 });
 */
 const sequelize = new Sequelize({
-  dialect:"sqlite",
-  storage:"./sqlite.bd"
-})
-
+  dialect: "sqlite",
+  storage: "./sqlite.bd",
+});
 
 exports.sequelize = sequelize;
 
@@ -31,10 +30,10 @@ exports.connect = async function () {
 // funcion que permite sincronizar los cambios
 exports.sync = async function () {
   try {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
     console.log("Base de datos actualizada");
   } catch (error) {
     console.error(error);
-    process.exit(1); 
+    process.exit(1);
   }
 };

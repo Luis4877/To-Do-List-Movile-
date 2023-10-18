@@ -16,14 +16,17 @@ exports.getTask = async function (request, response) {
 
 //obtener todas las tareas
 exports.getTasks = async function (request, response) {
-  const task = await findAll();
+  const {id} = request.user;
+  const task = await findAll(id);
   response.status(200).json(task);
 };
 
 //crear una tarea
 exports.createTask = async function (request, response) {
-  const { name, description} = request.body;
-  const task = await insert({ UserId: 1 ,name, description });
+  const { name, description } = request.body;
+  const { id } = request.user;
+  console.log(request.user);
+  const task = await insert({ UserId: id, name, description });
   response.status(201).json(task);
 };
 
@@ -38,13 +41,13 @@ exports.completeTask = async function (request, response) {
 exports.updateTask = async function (request, response) {
   const { name, description } = request.body;
   const { id } = request.params;
-  await update(id,name,description);
+  await update(id, name, description);
   response.status(204).end();
 };
 
 exports.deleteTask = async function (request, response) {
   const { id } = request.params;
-  console.error(id);
+
   await destroy(id);
-  response.send("TAREA BORRADA");
+  response.status(204).end();
 };

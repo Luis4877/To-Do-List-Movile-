@@ -15,3 +15,23 @@ exports.updateUser = async function (id, username, correo, password) {
   const datos = await User.findByPk(id);
   await datos.update({ username, correo, password });
 };
+
+
+
+
+exports.findOneByemail= function(correo){
+ 
+  const usuario = User.findOne({
+    where:{
+      correo,
+    }
+  })
+  console.error(usuario,'Usuario que encuentra por el correo');
+  return usuario;
+};
+
+
+exports.findOneById =  function(id){
+  return User.findByPk(id);
+}
+
